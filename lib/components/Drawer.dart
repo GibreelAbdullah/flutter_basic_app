@@ -9,6 +9,26 @@ class CommonDrawer extends StatelessWidget {
     _currentScreen = title;
   }
 
+  FlatButton drawerItem(BuildContext context, String title, String route) {
+    return FlatButton(
+      onPressed: () {
+        if (_currentScreen != title)
+          Navigator.pushReplacementNamed(context, route);
+        else
+          Navigator.pop(context);
+      },
+      child: Row(
+        children: [
+          Icon(Icons.home),
+          SizedBox(
+            width: 10,
+          ),
+          Text(title)
+        ],
+      ),
+    );
+  }
+
   @override
   Drawer build(BuildContext context) {
     return Drawer(
@@ -18,64 +38,16 @@ class CommonDrawer extends StatelessWidget {
           children: [
             Column(
               children: [
-                FlatButton(
-                  onPressed: () {
-                    if (_currentScreen != HOME_SCREEN_TITLE)
-                      Navigator.pushReplacementNamed(context, '/home');
-                    else
-                      Navigator.pop(context);
-                  },
-                  child: Row(
-                    children: [
-                      Icon(Icons.home),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(HOME_SCREEN_TITLE)
-                    ],
-                  ),
-                ),
-                FlatButton(
-                  onPressed: () {
-                    if (_currentScreen != ABOUT_US_SCREEN_TITLE)
-                      Navigator.pushReplacementNamed(context, '/aboutus');
-                    else
-                      Navigator.pop(context);
-                  },
-                  child: Row(
-                    children: [
-                      Icon(Icons.people),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(ABOUT_US_SCREEN_TITLE)
-                    ],
-                  ),
-                ),
+                drawerItem(context, HOME_SCREEN_TITLE, '/home'),
+                drawerItem(context, ABOUT_US_SCREEN_TITLE, '/aboutus'),
               ],
             ),
             Column(
               children: [
                 Divider(),
-                FlatButton(
-                  onPressed: () {
-                    if (_currentScreen != SETTINGS_SCREEN_TITLE)
-                      Navigator.pushReplacementNamed(context, '/settings');
-                    else
-                      Navigator.pop(context);
-                  },
-                  child: Row(
-                    children: [
-                      Icon(Icons.settings),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(SETTINGS_SCREEN_TITLE)
-                    ],
-                  ),
-                ),
+                drawerItem(context, SETTINGS_SCREEN_TITLE, '/settings'),
               ],
-            )
+            ),
           ],
         ),
       ),
