@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../components/Drawer.dart';
+import '../constants/AppConstants.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -11,9 +12,9 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: Text(HOME_SCREEN_TITLE),
       ),
-      drawer: CommonDrawer('Home'),
+      drawer: CommonDrawer(HOME_SCREEN_TITLE),
     );
   }
 }

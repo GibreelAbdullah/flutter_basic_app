@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../constants/AppConstants.dart';
 
 // ignore: must_be_immutable
 class CommonDrawer extends StatelessWidget {
@@ -19,7 +20,7 @@ class CommonDrawer extends StatelessWidget {
               children: [
                 FlatButton(
                   onPressed: () {
-                    if (_currentScreen != 'Home')
+                    if (_currentScreen != HOME_SCREEN_TITLE)
                       Navigator.pushReplacementNamed(context, '/home');
                     else
                       Navigator.pop(context);
@@ -30,13 +31,13 @@ class CommonDrawer extends StatelessWidget {
                       SizedBox(
                         width: 10,
                       ),
-                      Text('Home')
+                      Text(HOME_SCREEN_TITLE)
                     ],
                   ),
                 ),
                 FlatButton(
                   onPressed: () {
-                    if (_currentScreen != 'About Us')
+                    if (_currentScreen != ABOUT_US_SCREEN_TITLE)
                       Navigator.pushReplacementNamed(context, '/aboutus');
                     else
                       Navigator.pop(context);
@@ -47,7 +48,7 @@ class CommonDrawer extends StatelessWidget {
                       SizedBox(
                         width: 10,
                       ),
-                      Text('About Us')
+                      Text(ABOUT_US_SCREEN_TITLE)
                     ],
                   ),
                 ),
@@ -58,7 +59,7 @@ class CommonDrawer extends StatelessWidget {
                 Divider(),
                 FlatButton(
                   onPressed: () {
-                    if (_currentScreen != 'Settings')
+                    if (_currentScreen != SETTINGS_SCREEN_TITLE)
                       Navigator.pushReplacementNamed(context, '/settings');
                     else
                       Navigator.pop(context);
@@ -69,7 +70,7 @@ class CommonDrawer extends StatelessWidget {
                       SizedBox(
                         width: 10,
                       ),
-                      Text('Settings')
+                      Text(SETTINGS_SCREEN_TITLE)
                     ],
                   ),
                 ),

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import '../components/Drawer.dart';
+import '../constants/AppConstants.dart';
 
 class AboutUs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: AppBar(
-        title: Text('About Us'),
+        title: Text(ABOUT_US_SCREEN_TITLE),
       ),
-      drawer: CommonDrawer('About Us'),
+      drawer: CommonDrawer(ABOUT_US_SCREEN_TITLE),
     );
   }
 }
