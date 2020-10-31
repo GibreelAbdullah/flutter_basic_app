@@ -9,7 +9,8 @@ class CommonDrawer extends StatelessWidget {
     _currentScreen = title;
   }
 
-  FlatButton drawerItem(BuildContext context, String title, String route) {
+  FlatButton drawerItem(
+      BuildContext context, String title, String route, IconData icon) {
     return FlatButton(
       onPressed: () {
         if (_currentScreen != title)
@@ -19,7 +20,7 @@ class CommonDrawer extends StatelessWidget {
       },
       child: Row(
         children: [
-          Icon(Icons.home),
+          Icon(icon),
           SizedBox(
             width: 10,
           ),
@@ -38,14 +39,16 @@ class CommonDrawer extends StatelessWidget {
           children: [
             Column(
               children: [
-                drawerItem(context, HOME_SCREEN_TITLE, '/home'),
-                drawerItem(context, ABOUT_US_SCREEN_TITLE, '/aboutus'),
+                drawerItem(context, HOME_SCREEN_TITLE, '/home', Icons.home),
+                drawerItem(
+                    context, ABOUT_US_SCREEN_TITLE, '/aboutus', Icons.people),
               ],
             ),
             Column(
               children: [
                 Divider(),
-                drawerItem(context, SETTINGS_SCREEN_TITLE, '/settings'),
+                drawerItem(context, SETTINGS_SCREEN_TITLE, '/settings',
+                    Icons.settings),
               ],
             ),
           ],
@@ -54,3 +57,4 @@ class CommonDrawer extends StatelessWidget {
     );
   }
 }
+
